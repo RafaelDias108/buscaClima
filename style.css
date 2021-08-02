@@ -1,0 +1,258 @@
+:root {
+    --bg-color: #fff;
+    --bg-color-resultado: #9b9b9b;
+    --bg-btn: #0B5ED7;
+    --bg-btn-hover: #053d91;
+    --primary-font-color: #1f1e1e;
+    --second-font-color: #333333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--bg-color);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 20px 20px 20px;
+}
+
+.busca {
+    display: flex;
+    width: 300px;
+}
+
+.busca #searchInput {
+    flex: 1;
+    padding: 10px;
+    outline: none;
+    font-size: 15px;
+    border-radius: 5px;
+    border: 1px solid var(--second-font-color);
+}
+
+.busca button {
+    padding: 10px;
+    font-size: 15px;
+    border: 0;
+    background-color: var(--bg-btn);
+    color: var(--bg-color);
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.busca button:hover {
+    background-color: var(--bg-btn-hover);
+}
+
+.content_resultado {
+    height: 300px;
+}
+
+.resultado {
+    width: 300px;
+    display: none;
+    border: 1px dotted #FFF;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.315);
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.resultado.animar {
+    animation-name: slide;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slide {
+    from {
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.titulo {
+    width: 100%;
+    color: #FFF;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+}
+
+.info {
+    display: flex;
+    width: 100%;
+}
+
+.info .temp {
+    flex: 1;
+    text-align: center;
+}
+
+.info .vento {
+    flex: 1;
+    text-align: center;
+}
+
+.tempTitulo,
+.ventoTitulo {
+    color: var(--primary-font-color);
+    font-size: 16px;
+    margin-bottom: 5px;
+    /* font-weight: bold; */
+}
+
+.tempInfo,
+.ventoInfo {
+    color: #FFF;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.tempInfo sup {
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.ventoInfo span {
+    font-size: 15px;
+    font-weight: normal;
+}
+
+
+/* inserindo a rosa dos ventos */
+
+.riscos {
+    width: 100%;
+    height: 100%;
+    /* padding-left: 50%; */
+    /* padding-top: 50px; */
+    margin-top: -3px;
+}
+
+.risco {
+    width: 35px;
+    height: 5px;
+    position: absolute;
+    transform-origin: left;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.risco .ponto {
+    width: 10px;
+    /* height: 40%; */
+    /* background-color: var(--bg-color); */
+    color: var(--bg-color);
+}
+
+.ventoArea {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #FFF;
+    border-radius: 50%;
+    margin: auto;
+    margin-top: 25px;
+    padding-left: 25px;
+    padding-top: 25px;
+}
+
+.ventoPonto {
+    width: 15px;
+    height: 2px;
+    background-color: #FFF;
+    transform-origin: left;
+}
+
+.aviso {
+    color: var(--primary-font-color);
+    padding-top: 20px;
+    position: relative;
+}
+
+footer {
+    margin-bottom: 10px;
+    color: var(--second-font-color);
+    font-size: 13px;
+    text-align: center;
+}
+
+
+/* animação om o svg */
+
+#sol {
+    animation: sol 5s ease-in-out forwards;
+}
+
+#nuvem2 {
+    animation: nuvem2 10s linear infinite;
+    transform: scale(0.1);
+    width: 50px;
+    height: 25px;
+}
+
+#nuvem {
+    animation: nuvem 20s linear infinite;
+    transform: scale(1.1);
+}
+
+@keyframes sol {
+    0% {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes nuvem2 {
+    0% {
+        transform: translateX(150px);
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-150px);
+    }
+}
+
+@keyframes nuvem {
+    0% {
+        transform: translateX(150px);
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-150px);
+    }
+}
